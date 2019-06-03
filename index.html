@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>加密解密</title>
+<script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+  <div id="jiami">
+    <p>
+      <span>请选择加密解密方法：</span>
+      <br>
+      <label>
+        <input type="radio" name="ways" value="1" id="ways_0">
+        凯撒密码</label>
+      <br>
+      <label>
+        <input type="radio" name="ways" value="2" id="ways_1">
+        字母倒排序</label>
+      <br>
+      <label>
+        <input type="radio" name="ways" value="3" id="ways_2">
+        单表置换密码</label>
+      <br>
+      <label>
+        <input type="radio" name="ways" value="4" id="ways_3">
+        维吉利亚密码</label>
+      <br>
+      <label>
+        <input type="radio" name="ways" value="5" id="ways_4">
+        转换加密</label>
+      <br>
+    </p>
+      <label for="textfield">请输入待加密或解密文本：</label>
+      <br>
+      <br>
+<!--      <input type="text" name="input1" id="input1">-->
+      <textarea name="input1" cols="28" rows="7" id="input1"></textarea>
+      <br>
+      <br>
+      <input type="button" name="button1" id="button1" value="加密" onClick="encrypt()">
+      <input type="button" name="button2" id="button2" value="解密" onClick="decrypt()">
+      <p id="tips"></p>
+      <p id="output1"></p>
+  </div>
+  <div id="jiemi">
+  
+  </div>
+</body>
+</html>
