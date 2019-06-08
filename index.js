@@ -1,5 +1,5 @@
 // JavaScript Document
-function kaisa(n){
+function enCaesar(n){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var input = document.getElementById("input1").value.trim().toLowerCase();   //去掉输入两侧的空格，再转换为小写
   var output = "";
@@ -9,7 +9,7 @@ function kaisa(n){
   document.getElementById("output1").innerHTML = output;
 }
 
-function dekaisa(n){
+function deCaesar(n){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var input = document.getElementById("input1").value.trim().toLowerCase();
   var output = "";
@@ -24,7 +24,7 @@ function dekaisa(n){
 }
 
 //倒排加密解密所用函数相同
-function daopai(){
+function Reverse(){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var input = document.getElementById("input1").value.trim().toLowerCase();
   var output = "";
@@ -34,7 +34,7 @@ function daopai(){
   document.getElementById("output1").innerHTML = output;
 }
 
-function zhihuan(key){
+function enReplacement(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
@@ -55,7 +55,7 @@ function zhihuan(key){
   document.getElementById("output1").innerHTML = output;
 }
 
-function dezhihuan(key){
+function deReplacement(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
@@ -76,7 +76,7 @@ function dezhihuan(key){
   document.getElementById("output1").innerHTML = output;
 }
 
-function wjny(key){
+function enVirginia(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
@@ -97,7 +97,7 @@ function wjny(key){
   document.getElementById("output1").innerHTML = output;
 }
 
-function dewjny(key){
+function deVirginia(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
@@ -122,11 +122,11 @@ function dewjny(key){
   document.getElementById("output1").innerHTML = output;
 }
 
-function zhuanhuan(key){
+function enTransform(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var input = document.getElementById("input1").value.trim().toLowerCase();
   input = input.split(' ').toString().replace(/,/g,'');   //实现去掉明文中空格：先将字符串以空格分割，再将分割后的数组转换成字符串再去掉逗号即可。replace(/,/g,'')中/,/g为正则表达式，g表示全局匹配以实现全部替换
-//  console.log(input);   //查看明文是否去掉空格
+  //  console.log(input);   //查看明文是否去掉空格
   var output = "";
   var n = key.length;
   var row = Math.ceil(input.length/n);
@@ -135,7 +135,7 @@ function zhuanhuan(key){
     ciphertext.push(input.substr(i*n,n));   //push方法从尾端添加数组元素，substr(n1,n2)方法实现从n1位置开始提取n2长度子字符串
   }
   ciphertext.push(input.substr(i*n));   //提取剩余明文得到最终密文表，即从i*n位置起到末尾所有字符
-//  console.log(ciphertext);    //查看密文表是否正确
+  //  console.log(ciphertext);    //查看密文表是否正确
   for(i=0; i<26; i++){
     if(key.indexOf(letter[i])>=0){
       var k = key.indexOf(letter[i]);   //按字母表顺序第几列
@@ -150,7 +150,7 @@ function zhuanhuan(key){
   document.getElementById("output1").innerHTML = output;
 }
 
-function dezhuanhuan(key){
+function deTransform(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var input = document.getElementById("input1").value.trim().toLowerCase();
   var output = "";
@@ -191,6 +191,38 @@ function dezhuanhuan(key){
   document.getElementById("output1").innerHTML = output;
 }
 
+function clear(){
+  document.getElementById("key").value = "";
+  document.getElementById("input1").value = "";
+  document.getElementById("tips").value = "";
+  document.getElementById("output1").value = "";
+}
+
+function radioCaesar(){
+  clear();
+  document.getElementById("keyinput").style.display = "block";
+}
+
+function radioReverse(){
+  clear();
+  document.getElementById("keyinput").style.display = "none";
+}
+
+function radioReplacement(){
+  clear();
+  document.getElementById("keyinput").style.display = "block";
+}
+
+function radioVirginia(){
+  clear();
+  document.getElementById("keyinput").style.display = "block";
+}
+
+function radioTransform(){
+  clear();
+  document.getElementById("keyinput").style.display = "block";
+}
+
 function encrypt(){
   document.getElementById("tips").innerHTML = "加密后密文为："
   var value = "";
@@ -207,19 +239,19 @@ function encrypt(){
   }
   switch(value){
     case "1":
-      kaisa(3);   //默认位移参数
+      enCaesar(3);   //默认位移参数
       break;
     case "2":
-      daopai();
+      Reverse();
       break;
     case "3":
-      zhihuan("beijingtsinghua");   //默认密钥
+      enReplacement("beijingtsinghua");   //默认密钥
       break;
     case "4":
-      wjny("star");   //默认密钥
+      enVirginia("star");   //默认密钥
       break;
     case "5":
-      zhuanhuan("megabuck");    //默认密钥
+      enTransform("megabuck");    //默认密钥
       break;
     default:
       document.getElementById("output1").innerHTML = "请选择加密方法！";
@@ -242,19 +274,19 @@ function decrypt(){
   }
   switch(value){
     case "1":
-      dekaisa(3);   //默认位移参数
+      deCaesar(3);   //默认位移参数
       break;
     case "2":
-      daopai();
+      Reverse();
       break;
     case "3":
-      dezhihuan("beijingtsinghua");   //默认密钥
+      deReplacement("beijingtsinghua");   //默认密钥
       break;
     case "4":
-      dewjny("star");   //默认密钥
+      deVirginia("star");   //默认密钥
       break;
     case "5":
-      dezhuanhuan("megabuck");    //默认密钥
+      deTransform("megabuck");    //默认密钥
       break;
     default:
       document.getElementById("output1").innerHTML = "请选择解密方法！";
