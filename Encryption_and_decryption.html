@@ -54,11 +54,12 @@
         ciphertext += key[i]
       }
     }
-    for(i=0; i<25; i++){
+    for(i=0; i<26; i++){
       if(ciphertext.indexOf(letter[i])==-1){    //剩余原字母表中的字母如果不在密文表中则添加
         ciphertext += letter[i];
       }
     }
+    // console.log(ciphertext);    //查看密码表是否正确
     for(i=0; i<input.length; i++){
       output += ciphertext[letter.indexOf(input[i])]    //待加密字母在原字母表中序号对应密文表中加密字母
     }
@@ -75,7 +76,7 @@
         ciphertext += key[i]
       }
     }
-    for(i=0; i<25; i++){
+    for(i=0; i<26; i++){
       if(ciphertext.indexOf(letter[i])==-1){    //剩余原字母表中的字母如果不在密文表中则添加
         ciphertext += letter[i];
       }
