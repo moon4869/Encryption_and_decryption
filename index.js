@@ -191,21 +191,22 @@ function deTransform(key){
   document.getElementById("output1").innerHTML = output;
 }
 
+//清除所有输入
 function clear(){
   document.getElementById("key").value = "";
   document.getElementById("input1").value = "";
-  document.getElementById("tips").value = "";
-  document.getElementById("output1").value = "";
+  document.getElementById("tips").innerHTML = "";
+  document.getElementById("output1").innerHTML = "";
 }
 
 function radioCaesar(){
   clear();
-  document.getElementById("keyinput").style.display = "block";
+  document.getElementById("keyinput").style.display = "block";    //显示输入密钥功能
 }
 
 function radioReverse(){
   clear();
-  document.getElementById("keyinput").style.display = "none";
+  document.getElementById("keyinput").style.display = "none";     //关闭输入密钥功能
 }
 
 function radioReplacement(){
@@ -224,8 +225,9 @@ function radioTransform(){
 }
 
 function encrypt(){
-  document.getElementById("tips").innerHTML = "加密后密文为："
   var value = "";
+  var key = document.getElementById("key").value.trim().toLowerCase();
+  //console.log(key);     //查看密钥是否正确
   var radio = document.getElementsByName("ways");
   for(var i=0; i<radio.length; i++){
     if(radio[i].checked==true){
@@ -234,33 +236,34 @@ function encrypt(){
     }
   }
   if(value==""){
-    document.getElementById("output1").innerHTML = "请选择加密方法！";
+    document.getElementById("tips").innerHTML = "请选择加密方法！";
     return;
   }
+  document.getElementById("tips").innerHTML = "加密后密文为：";
+
   switch(value){
     case "1":
-      enCaesar(3);   //默认位移参数
+      key = parseInt(key);    //密钥为数字
+      enCaesar(key);   //凯撒加密
       break;
     case "2":
       Reverse();
       break;
     case "3":
-      enReplacement("beijingtsinghua");   //默认密钥
+      enReplacement(key);   //置换加密
       break;
     case "4":
-      enVirginia("star");   //默认密钥
+      enVirginia(key);   //维吉尼亚加密
       break;
     case "5":
-      enTransform("megabuck");    //默认密钥
+      enTransform(key);    //转换加密
       break;
-    default:
-      document.getElementById("output1").innerHTML = "请选择加密方法！";
-              }
+  }
 }
 
 function decrypt(){
-  document.getElementById("tips").innerHTML = "解密后明文为："
   var value = "";
+  var key = document.getElementById("key").value.trim().toLowerCase();
   var radio = document.getElementsByName("ways");
   for(var i=0; i<radio.length; i++){
     if(radio[i].checked==true){
@@ -269,26 +272,27 @@ function decrypt(){
     }
   }
   if(value==""){
-    document.getElementById("output1").innerHTML = "请选择解密方法！";
+    document.getElementById("tips").innerHTML = "请选择加密方法！";
     return;
   }
+  document.getElementById("tips").innerHTML = "加密后密文为：";
+
   switch(value){
     case "1":
-      deCaesar(3);   //默认位移参数
+      key = parseInt(key);
+      deCaesar(key);   //凯撒解密
       break;
     case "2":
       Reverse();
       break;
     case "3":
-      deReplacement("beijingtsinghua");   //默认密钥
+      deReplacement(key);   //置换解密
       break;
     case "4":
-      deVirginia("star");   //默认密钥
+      deVirginia(key);   //维吉尼亚解密
       break;
     case "5":
-      deTransform("megabuck");    //默认密钥
+      deTransform(key);    //转换解密
       break;
-    default:
-      document.getElementById("output1").innerHTML = "请选择解密方法！";
-              }
+  }
 }
