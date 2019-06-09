@@ -1,5 +1,12 @@
 # Encryption_and_decryption
 
+项目主要文件说明：
+
+- **Encryption_and_decryption.html**——加密解密主文件，下载后用浏览器打开直接使用
+- function.js——采用js实现的解密解密函数文件，单独提取出来而已
+- results——不同版本的效果图文件夹
+- README.md——项目说明文件
+
 ## 凯撒密码
 
 凯撒密码密钥需是**整数数字**。
