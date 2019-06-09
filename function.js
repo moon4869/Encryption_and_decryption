@@ -44,7 +44,7 @@ function enReplacement(key){
       ciphertext += key[i]
     }
   }
-  for(i=0; i<25; i++){
+  for(i=0; i<26; i++){
     if(ciphertext.indexOf(letter[i])==-1){    //剩余原字母表中的字母如果不在密文表中则添加
       ciphertext += letter[i];
     }
@@ -65,7 +65,7 @@ function deReplacement(key){
       ciphertext += key[i]
     }
   }
-  for(i=0; i<25; i++){
+  for(i=0; i<26; i++){
     if(ciphertext.indexOf(letter[i])==-1){    //剩余原字母表中的字母如果不在密文表中则添加
       ciphertext += letter[i];
     }
