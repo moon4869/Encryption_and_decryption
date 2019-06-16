@@ -80,12 +80,13 @@ function enVirginia(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
+  var n = input.length;
   var output = "";
-  for(var i=0; i<Math.floor(26/key.length); i++){   //加密字母表加上整数倍密钥
+  for(var i=0; i<Math.floor(n/key.length); i++){   //加密字母表加上整数倍密钥
     ciphertext += key;
   }
   for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表
-    if(ciphertext.length>=26){
+    if(ciphertext.length>=n){
       break;
     }
     ciphertext += key[i];
@@ -101,12 +102,13 @@ function deVirginia(key){
   var letter = "abcdefghijklmnopqrstuvwxyz";
   var ciphertext = "";
   var input = document.getElementById("input1").value.trim().toLowerCase();
+  var n = input.length;
   var output = "";
-  for(var i=0; i<Math.floor(26/key.length); i++){   //加密字母表加上整数倍密钥
+  for(var i=0; i<Math.floor(n/key.length); i++){   //加密字母表加上整数倍密钥
     ciphertext += key;
   }
   for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表
-    if(ciphertext.length>=26){
+    if(ciphertext.length>=n){
       break;
     }
     ciphertext += key[i];
