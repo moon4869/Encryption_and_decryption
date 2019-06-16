@@ -85,7 +85,7 @@ function enVirginia(key){
   for(var i=0; i<Math.floor(n/key.length); i++){   //加密字母表加上整数倍密钥
     ciphertext += key;
   }
-  for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表
+  for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表，最终长度应与待加密字母长度相同
     if(ciphertext.length>=n){
       break;
     }
@@ -107,7 +107,7 @@ function deVirginia(key){
   for(var i=0; i<Math.floor(n/key.length); i++){   //加密字母表加上整数倍密钥
     ciphertext += key;
   }
-  for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表
+  for(i=0; i<key.length; i++){    //加上剩余非整数部分密钥得到完整加密字母表，最终长度应与待加密字母长度相同
     if(ciphertext.length>=n){
       break;
     }
